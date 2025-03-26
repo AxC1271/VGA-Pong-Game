@@ -4,38 +4,38 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity vga_controller is
     port ( 
-    clk : in STD_LOGIC;  -- 100 MHz input clock
-    rst : in STD_LOGIC; -- sync reset
+    clk : in STD_LOGIC;  
+    rst : in STD_LOGIC; 
     btn_up : in  STD_LOGIC; 
     btn_down : in  STD_LOGIC;  
     hsync : out STD_LOGIC;  
     vsync : out STD_LOGIC;  
-    vga_r : out STD_LOGIC_VECTOR(3 downto 0); -- VGA Red (4-bit)
-    vga_g : out STD_LOGIC_VECTOR(3 downto 0); -- VGA Green (4-bit)
-    vga_b : out STD_LOGIC_VECTOR(3 downto 0)  -- VGA Blue (4-bit)
+    vga_r : out STD_LOGIC_VECTOR(3 downto 0); 
+    vga_g : out STD_LOGIC_VECTOR(3 downto 0); 
+    vga_b : out STD_LOGIC_VECTOR(3 downto 0)  
          );
 end vga_controller;
 
 architecture Behavioral of vga_controller is
 
     -- VGA Timing Constants for 1600x900 @ 60Hz (pixel clock = 86.4 MHz)
-    constant H_PIXELS  : INTEGER := 1600; -- Active video width
-    constant H_FP      : INTEGER := 40;   -- Front porch
-    constant H_PULSE   : INTEGER := 80;   -- Sync pulse
-    constant H_BP      : INTEGER := 80;   -- Back porch
-    constant H_TOTAL   : INTEGER := 1800; -- Total width
+    constant H_PIXELS  : INTEGER := 1600; 
+    constant H_FP      : INTEGER := 40;   
+    constant H_PULSE   : INTEGER := 80;   
+    constant H_BP      : INTEGER := 80;  
+    constant H_TOTAL   : INTEGER := 1800; 
 
-    constant V_PIXELS  : INTEGER := 900;  -- Active video height
-    constant V_FP      : INTEGER := 3;    -- Front porch
-    constant V_PULSE   : INTEGER := 6;    -- Sync pulse
-    constant V_BP      : INTEGER := 17;   -- Back porch
-    constant V_TOTAL   : INTEGER := 926;  -- Total height
+    constant V_PIXELS  : INTEGER := 900; 
+    constant V_FP      : INTEGER := 3;    
+    constant V_PULSE   : INTEGER := 6;    
+    constant V_BP      : INTEGER := 17;   
+    constant V_TOTAL   : INTEGER := 926; 
 
     signal pixel_x : INTEGER range 0 to H_TOTAL - 1 := 0;
     signal pixel_y : INTEGER range 0 to V_TOTAL - 1 := 0;
 
     -- game-related signals
-    signal ball_x   : INTEGER range 0 to 1600 := 800; -- Start in the middle
+    signal ball_x   : INTEGER range 0 to 1600 := 800; -- start in the middle
     signal ball_y   : INTEGER range 0 to 900 := 450;
     signal paddle_y : INTEGER range 0 to 900 := 400;
     signal color    : STD_LOGIC_VECTOR(11 downto 0);  -- 12-bit color output
