@@ -17,7 +17,7 @@ end graphics_renderer;
 architecture Behavioral of graphics_renderer is
     constant PADDLE_X : integer := 20;   
     constant PADDLE_W : integer := 20;
-    constant PADDLE_H : integer := 150;  
+    constant PADDLE_H : integer := 120;  
     constant BALL_SIZE: integer := 40; 
     
 begin
