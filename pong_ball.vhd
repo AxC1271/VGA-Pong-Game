@@ -41,8 +41,8 @@ begin
     if rising_edge(clk_60Hz) then
         if rst = '1' then
             -- reset ball position and velocity
-            ball_x_reg <= 800;
-            ball_y_reg <= 450;
+            ball_x_reg <= 780;
+            ball_y_reg <= 430;
             dx <= 12;
             dy <= 8;
         else
@@ -59,7 +59,7 @@ begin
             
             -- paddle collision detection
             if ((ball_x_reg + dx) <= (paddle_x + 10) and (ball_x_reg + dx) >= paddle_x)
-            and (ball_y_reg >= paddle_y and ball_y_reg <= paddle_y + 150) then
+            and (ball_y_reg >= paddle_y and ball_y_reg <= paddle_y + 120) then
                 dx <= -dx;
             end if;
             
