@@ -38,7 +38,7 @@ begin
                 paddle_y_reg <= 390;
             else
                 -- move up if not at top edge
-                if up = '1' and paddle_y_reg > 0 then
+                if up = '1' and paddle_y_reg > 10 then
                     paddle_y_reg <= paddle_y_reg - 20;
                 end if;
 
