@@ -16,9 +16,9 @@ end pong_ball;
 architecture Behavioral of pong_ball is
     
     signal clk_60Hz : STD_LOGIC := '0';
-    signal ball_x_reg : integer range 0 to 1600 := 800;
-    signal ball_y_reg : integer range 0 to 900 := 450;
-    signal dx, dy : integer range -16 to 16 := 16; -- define ball velocity
+    signal ball_x_reg : integer range 0 to 1600 := 780;
+    signal ball_y_reg : integer range 0 to 900 := 430;
+    signal dx, dy : integer range -12 to 12 := 12; -- define ball velocity
 
 begin
     -- Clock divider for 60 Hz update frequency
@@ -43,8 +43,8 @@ begin
             -- reset ball position and velocity
             ball_x_reg <= 800;
             ball_y_reg <= 450;
-            dx <= 16;
-            dy <= 16;
+            dx <= 12;
+            dy <= 8;
         else
             -- check for collisions before updating position
             -- ball bouncing off top wall (y-axis)
