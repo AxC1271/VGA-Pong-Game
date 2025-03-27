@@ -35,7 +35,7 @@ begin
     begin
         if rising_edge(clk_60Hz) then
             if rst = '1' then
-                paddle_y_reg <= 400;
+                paddle_y_reg <= 375;
             else
                 -- move up if not at top edge
                 if up = '1' and paddle_y_reg > 0 then
