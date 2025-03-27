@@ -35,8 +35,8 @@ architecture Behavioral of vga_controller is
     signal pixel_y : INTEGER range 0 to V_TOTAL - 1 := 0;
 
     -- game-related signals
-    signal ball_x   : INTEGER range 0 to 1600 := 800; -- start in the middle
-    signal ball_y   : INTEGER range 0 to 900 := 450;
+    signal ball_x   : INTEGER range 0 to 1600 := 780; -- start in the middle
+    signal ball_y   : INTEGER range 0 to 900 := 430;
     signal paddle_y : INTEGER range 0 to 900 := 400;
     signal color    : STD_LOGIC_VECTOR(11 downto 0);  -- 12-bit color output
     
@@ -98,7 +98,7 @@ begin
         port map (
             clk => clk,
             rst => rst,
-            paddle_x => 40,
+            paddle_x => 20,
             paddle_y => paddle_y,
             ball_x    => ball_x,
             ball_y    => ball_y
